@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Reserve";
+}
+
+@section head{
+
+    <li class="menu-item-top" style="float: left">
+        <a href="/Uye/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Profilim</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Uye/HesapGecmisi" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Hesap Geçmişi</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Uye/Reserve" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Reservelerim</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Uye/Istek" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">İsteklerim</span>
+        </a>
+    </li>
+    <li class="menu-item-top">
+        <a href="/Home/Arama" class="top">
+            <span class="main-menu-text">Arama</span>
+        </a>
+    </li>
+    <li class="menu-item-top" style="float: left">
+        <a href="/Uye/AnaSayfa" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Çıkış</span>
+        </a>
+    </li>
+    <li class="menu-item-top" style="float: right">
+        <a href="/Uye/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">@ViewData["SchoolNumber"]</span>
+        </a>
+    </li>
+
+
+}
+
+
+<div class="col-md-6">
+    <h1>
+
+        <span class="main-text">
+            <span style="font-size: x-large; font-weight:600">Reservelerim</span>
+        </span>
+    </h1>
+</div>
+
+<div class="col-md-12">
+    <div class="block">
+
+        <div class="block-content-outer">
+            <div class="block-content-inner">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Adı</th>
+                        <th>Yazarı</th>
+                        <th>ISBN</th>
+                        <th>Reserve Tarihi</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/Uye/Arama" class="btn btn-warning rounded" role="button" style="float:right; margin-top:20px">Reserve Yap</a>
+
+
+

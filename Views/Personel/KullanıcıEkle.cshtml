@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "KullanıcıEkle";
+}
+@if (ViewBag.control !=null)
+{
+    <script>
+        alert("Kayıtlı Kullanıcı");
+    </script>
+}
+@section head{
+
+    <li class="menu-item-top" style="float: left">
+        <a href="/Personel/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Profilim</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Personel/KullanıcıEkle" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Kullanıcı Ekle</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+    <a href="/Personel/MateryalEkle" class="top">
+        <span class="main-menu-icon">
+            <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+        </span>
+        <span class="main-menu-text">Materyal Ekle</span>
+    </a>
+    <li class="menu-item-top" style="float: left">
+        <a href="/Home/AnaSayfa" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Çıkış</span>
+        </a>
+    </li>
+  
+
+
+}
+
+
+<div class="col-md-12 col-sm-6">
+    <div class="block">
+        <div class="block-heading">
+            <div class="main-text h2" style="font-weight:bolder">
+                Kullanıcı Ekle
+            </div>
+        </div>
+        <div class="block-content-outer">
+            <div class="block-content-inner">
+                <form role="form" action="/Personel/KullanıcıEkle" method="post">
+                    <div class="form-group">
+                        <label for="İsim" style="font-weight:bolder">İsim</label>
+                        <input type="text" class="form-control" id="İsim" placeholder="İsim" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Soyisim" style="font-weight:bolder">Soyisim</label>
+                        <input type="text" class="form-control" id="Soyisim" placeholder="Soyisim" name="surname">
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label style="font-weight:bolder">Role</label>
+                        <select class="form-control" name="role" style="width: 200px;" data-bv-field="sessionType" >
+                            <option value="Lisans">Lisans</option>
+                            <option value="Yüksek Lisans">Yüksek Lisans</option>
+                            <option value="Akademik Personel">Akademik Personel</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="İsim" style="font-weight:bolder">Okul No</label>
+                        <input type="number" class="form-control" id="okulno" placeholder="Okul No" name="schoolnumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="adress" style="font-weight:bolder">Adres</label>
+                        <input type="text" class="form-control" id="adres" placeholder="Adres" name="adress">
+                    </div>
+                    <div class="form-group">
+                        <label for="İsim" style="font-weight:bolder">Tel No</label>
+                        <input type="number" class="form-control" id="Telno" placeholder="Tel No" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="İsim" style="font-weight:bolder">Şifre</label>
+                        <input type="password" class="form-control" id="şifre" placeholder="Şifre" name="password">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

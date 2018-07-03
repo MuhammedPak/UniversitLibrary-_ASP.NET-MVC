@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Arama";
+}@section head{
+
+     <li class="menu-item-top" style="float: left">
+         <a href="/Uye/Profil" class="top">
+             <span class="main-menu-icon">
+                 <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+             </span>
+             <span class="main-menu-text">Profilim</span>
+         </a>
+     </li><li class="menu-item-top" style="float: left">
+         <a href="/Uye/HesapGecmisi" class="top">
+             <span class="main-menu-icon">
+                 <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+             </span>
+             <span class="main-menu-text">Hesap Geçmişi</span>
+         </a>
+     </li><li class="menu-item-top" style="float: left">
+         <a href="/Uye/Reserve" class="top">
+             <span class="main-menu-icon">
+                 <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+             </span>
+             <span class="main-menu-text">Reservelerim</span>
+         </a>
+     </li><li class="menu-item-top" style="float: left">
+         <a href="/Uye/Istek" class="top">
+             <span class="main-menu-icon">
+                 <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+             </span>
+             <span class="main-menu-text">İsteklerim</span>
+         </a>
+     </li>
+     <li class="menu-item-top">
+         <a href="/Uye/Arama" class="top">
+             <span class="main-menu-text">Arama</span>
+         </a>
+     </li>
+
+     <li class="menu-item-top" style="float: left">
+         <a href="/Home/AnaSayfa" class="top">
+             <span class="main-menu-icon">
+                 <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+             </span>
+             <span class="main-menu-text">Çıkış</span>
+         </a>
+     </li>
+    
+     <li class="menu-item-top" style="float: right">
+         <a href="/Uye/Profil" class="top">
+             <span class="main-menu-icon">
+                 <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+             </span>
+             <span class="main-menu-text">@ViewData["SchoolNumber"]</span>
+         </a>
+     </li>
+
+
+ }
+
+
+
+
+
+
+<form action="/Uye/Sonuc" method="get">
+
+
+    <div class="form-group">
+        <label style="font-size:large">Arama Kriterleri</label>
+        <select class="form-control" name="kriter" style="width: 200px;" required="" data-bv-field="sessionType">
+            <option value="Anahtar Kelime">Anahtar Kelime</option>
+            <option value="Başlık">Başlık</option>
+            <option value="Yazar">Yazar</option>
+        </select>
+        <input type="text" class="form-control" name="arama" required="" />
+        <label style="font-size:large">Kategori Seçiniz</label>
+        <select class="form-control" name="kategori" style="width: 200px;" required="" data-bv-field="sessionType">
+            <option value="">Kategori Seçiniz</option>
+            <option value="Tarih">Tarih</option>
+            <option value="Pskoloji">Pskoloji</option>
+            <option value="Bilim">Bilim</option>
+            <option value="Felsefe">Felsefe</option>
+            <option value="roman">Roman</option>
+            <option value="edebiyat">Edebiyat</option>
+                         
+
+        </select>
+
+
+        <label style="font-size:large">Tür Seçiniz</label>
+        <div class="radio">
+            <label>
+                <input type="radio" name="type" id="optionsRadios1" value="kitap" checked="checked">
+                Kitap
+            </label>
+            <label>
+                <input type="radio" name="type" id="optionsRadios2" value="dergi">
+                Dergi
+            </label>
+            <label>
+                <input type="radio" name="type" id="optionsRadios1-3" value="ekitap">
+                E-kitap
+            </label>
+        </div>
+        <label style="font-size:large">Dil Seçiniz</label>
+        <div class="checkbox">
+            <label>
+                <input type="radio" name="language" value="Türkçe" id="radio" checked="checked" /> Türkçe
+            </label>
+            <label>
+                <input type="radio" name="language" value="İngilizce" id="radio2" /> İngilizce
+            </label>
+
+
+        </div>
+
+        <button type="submit" style="font-size: x-large" class="btn btn-danger rounded">ARA</button>
+    </div>
+</form>
+

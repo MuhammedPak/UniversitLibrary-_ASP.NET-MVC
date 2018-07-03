@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Materials" Relationship="Self.MaterialAuthors" FromRole="Authors" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="Barrow">
+    <Key>
+      <PropertyRef Name="BarrowId" />
+    </Key>
+    <Property Name="BarrowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Materials_MaterialId" Type="Int32" />
+    <Property Name="Members_MemberId" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_dbo_Barrows_dbo_Materials_Materials_MaterialId" FromRole="Barrows" ToRole="Materials" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_dbo_Barrows_dbo_Members_Members_MemberId" FromRole="Barrows" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Materials" Relationship="Self.FK_dbo_Materials_dbo_Categories_Categories_CategoryId" FromRole="Categories" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Material_MaterialId" Type="Int32" />
+    <Property Name="Members_MemberId" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_dbo_Histories_dbo_Materials_Material_MaterialId" FromRole="Histories" ToRole="Materials" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_dbo_Histories_dbo_Members_Members_MemberId" FromRole="Histories" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Materials" Relationship="Self.FK_dbo_Materials_dbo_Languages_Languages_LanguageId" FromRole="Languages" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="MaterialId" />
+    </Key>
+    <Property Name="MaterialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ISBN" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Categories_CategoryId" Type="Int32" />
+    <Property Name="Languages_LanguageId" Type="Int32" />
+    <Property Name="Publishers_PublisherId" Type="Int32" />
+    <Property Name="Types_TypeId" Type="Int32" />
+    <NavigationProperty Name="Barrows" Relationship="Self.FK_dbo_Barrows_dbo_Materials_Materials_MaterialId" FromRole="Materials" ToRole="Barrows" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_dbo_Materials_dbo_Categories_Categories_CategoryId" FromRole="Materials" ToRole="Categories" />
+    <NavigationProperty Name="Histories" Relationship="Self.FK_dbo_Histories_dbo_Materials_Material_MaterialId" FromRole="Materials" ToRole="Histories" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_dbo_Materials_dbo_Languages_Languages_LanguageId" FromRole="Materials" ToRole="Languages" />
+    <NavigationProperty Name="Publisher" Relationship="Self.FK_dbo_Materials_dbo_Publishers_Publishers_PublisherId" FromRole="Materials" ToRole="Publishers" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_dbo_Materials_dbo_Types_Types_TypeId" FromRole="Materials" ToRole="Types" />
+    <NavigationProperty Name="Reserves" Relationship="Self.FK_dbo_Reserves_dbo_Materials_Material_MaterialId" FromRole="Materials" ToRole="Reserves" />
+    <NavigationProperty Name="Authors" Relationship="Self.MaterialAuthors" FromRole="Materials" ToRole="Authors" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Barrows" Relationship="Self.FK_dbo_Barrows_dbo_Members_Members_MemberId" FromRole="Members" ToRole="Barrows" />
+    <NavigationProperty Name="Histories" Relationship="Self.FK_dbo_Histories_dbo_Members_Members_MemberId" FromRole="Members" ToRole="Histories" />
+    <NavigationProperty Name="Requests" Relationship="Self.FK_dbo_Requests_dbo_Members_Members_MemberId" FromRole="Members" ToRole="Requests" />
+    <NavigationProperty Name="Reserves" Relationship="Self.FK_dbo_Reserves_dbo_Members_Members_MemberId" FromRole="Members" ToRole="Reserves" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="PublisherId" />
+    </Key>
+    <Property Name="PublisherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PublisherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Materials" Relationship="Self.FK_dbo_Materials_dbo_Publishers_Publishers_PublisherId" FromRole="Publishers" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="RequestId" />
+    </Key>
+    <Property Name="RequestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaterialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Members_MemberId" Type="Int32" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_dbo_Requests_dbo_Members_Members_MemberId" FromRole="Requests" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Reserve">
+    <Key>
+      <PropertyRef Name="ReserveId" />
+    </Key>
+    <Property Name="ReserveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReserveDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Material_MaterialId" Type="Int32" />
+    <Property Name="Members_MemberId" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_dbo_Reserves_dbo_Materials_Material_MaterialId" FromRole="Reserves" ToRole="Materials" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_dbo_Reserves_dbo_Members_Members_MemberId" FromRole="Reserves" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Typename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Materials" Relationship="Self.FK_dbo_Materials_dbo_Types_Types_TypeId" FromRole="Types" ToRole="Materials" />
+  </EntityType>
+  <Association Name="FK_dbo_Barrows_dbo_Materials_Materials_MaterialId">
+    <End Role="Materials" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="Barrows" Type="Self.Barrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="MaterialId" />
+      </Principal>
+      <Dependent Role="Barrows">
+        <PropertyRef Name="Materials_MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Barrows_dbo_Members_Members_MemberId">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Barrows" Type="Self.Barrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Barrows">
+        <PropertyRef Name="Members_MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materials_dbo_Categories_Categories_CategoryId">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Materials" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="Categories_CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Histories_dbo_Materials_Material_MaterialId">
+    <End Role="Materials" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="Histories" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="MaterialId" />
+      </Principal>
+      <Dependent Role="Histories">
+        <PropertyRef Name="Material_MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Histories_dbo_Members_Members_MemberId">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Histories" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Histories">
+        <PropertyRef Name="Members_MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materials_dbo_Languages_Languages_LanguageId">
+    <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
+    <End Role="Materials" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="Languages_LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materials_dbo_Publishers_Publishers_PublisherId">
+    <End Role="Publishers" Type="Self.Publisher" Multiplicity="0..1" />
+    <End Role="Materials" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publishers">
+        <PropertyRef Name="PublisherId" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="Publishers_PublisherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Materials_dbo_Types_Types_TypeId">
+    <End Role="Types" Type="Self.Type" Multiplicity="0..1" />
+    <End Role="Materials" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="Types_TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Reserves_dbo_Materials_Material_MaterialId">
+    <End Role="Materials" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="Reserves" Type="Self.Reserve" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="MaterialId" />
+      </Principal>
+      <Dependent Role="Reserves">
+        <PropertyRef Name="Material_MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Requests_dbo_Members_Members_MemberId">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Requests" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="Members_MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Reserves_dbo_Members_Members_MemberId">
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Reserves" Type="Self.Reserve" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Reserves">
+        <PropertyRef Name="Members_MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialAuthors">
+    <End Role="Authors" Type="Self.Author" Multiplicity="*" />
+    <End Role="Materials" Type="Self.Material" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Authors" EntityType="Self.Author" />
+    <EntitySet Name="Barrows" EntityType="Self.Barrow" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Histories" EntityType="Self.History" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="Materials" EntityType="Self.Material" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="Publishers" EntityType="Self.Publisher" />
+    <EntitySet Name="Requests" EntityType="Self.Request" />
+    <EntitySet Name="Reserves" EntityType="Self.Reserve" />
+    <EntitySet Name="Staffs" EntityType="Self.Staff" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Types" EntityType="Self.Type" />
+    <AssociationSet Name="FK_dbo_Barrows_dbo_Materials_Materials_MaterialId" Association="Self.FK_dbo_Barrows_dbo_Materials_Materials_MaterialId">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Barrows" EntitySet="Barrows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Barrows_dbo_Members_Members_MemberId" Association="Self.FK_dbo_Barrows_dbo_Members_Members_MemberId">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Barrows" EntitySet="Barrows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materials_dbo_Categories_Categories_CategoryId" Association="Self.FK_dbo_Materials_dbo_Categories_Categories_CategoryId">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Histories_dbo_Materials_Material_MaterialId" Association="Self.FK_dbo_Histories_dbo_Materials_Material_MaterialId">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Histories" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Histories_dbo_Members_Members_MemberId" Association="Self.FK_dbo_Histories_dbo_Members_Members_MemberId">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Histories" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materials_dbo_Languages_Languages_LanguageId" Association="Self.FK_dbo_Materials_dbo_Languages_Languages_LanguageId">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materials_dbo_Publishers_Publishers_PublisherId" Association="Self.FK_dbo_Materials_dbo_Publishers_Publishers_PublisherId">
+      <End Role="Publishers" EntitySet="Publishers" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Materials_dbo_Types_Types_TypeId" Association="Self.FK_dbo_Materials_dbo_Types_Types_TypeId">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Reserves_dbo_Materials_Material_MaterialId" Association="Self.FK_dbo_Reserves_dbo_Materials_Material_MaterialId">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Reserves" EntitySet="Reserves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Requests_dbo_Members_Members_MemberId" Association="Self.FK_dbo_Requests_dbo_Members_Members_MemberId">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Reserves_dbo_Members_Members_MemberId" Association="Self.FK_dbo_Reserves_dbo_Members_Members_MemberId">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Reserves" EntitySet="Reserves" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialAuthors" Association="Self.MaterialAuthors">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

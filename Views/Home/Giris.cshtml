@@ -1,0 +1,71 @@
+﻿@using System.ServiceModel.Security
+@using System.Web.UI.WebControls
+@using softptoject.Controllers
+
+@{
+    ViewBag.Title = "Giris";
+}
+@if(ViewBag.control != null){
+    <script>
+        alert("Yanlis bilgi girdiniz");
+    </script>
+}
+
+
+@section Arama
+{
+    <li class="menu-item-top">
+        <a href="/Home/Arama" class="top">
+            <span class="main-menu-text">Arama</span>
+        </a>
+    </li>
+}
+<form action="/Home/Giris" method="post">
+    <div class="standalone-page-content" data-border-top="multi">
+        <div class="standalone-page-block">
+            <div class="row">
+                <div class="col-xs-12">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <form role="form" class="login-form form-horizontal" method="post" action="/Home/Giris">
+                        <div class="block-content-outer">
+                            <div class="block-content-inner">
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="inputEmail" class="col-sm-3 control-label">Kullanıcı Numarası</label>
+                            <div class="col-sm-9">
+                                <input autocomplete="off" class="form-control" id="kullanıcııd" placeholder="Kullanıcı Numarası" type="text" name="kullanıcınumarası">
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Şifre</label>
+                            <div class="col-sm-9">
+                                <input autocomplete="off" class="form-control" id="sifre" placeholder="sifre" type="password" name="sifre">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+
+
+                                <button style="background-color:brown" type="submit" class="btn btn-success">Giriş Yap</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

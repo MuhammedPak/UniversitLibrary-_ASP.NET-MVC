@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "MateryalEkle";
+}
+@if (ViewBag.ısbn == 1)
+{
+    <script>
+        alert("Kayıtlı Material");
+    </script>
+}
+@section head{
+
+    <li class="menu-item-top" style="float: left">
+        <a href="/Personel/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Profilim</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Personel/KullanıcıEkle" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Kullanıcı Ekle</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Personel/MateryalEkle" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Materyal Ekle</span>
+        </a>
+    <li class="menu-item-top" style="float: left">
+        <a href="/Home/AnaSayfa" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Çıkış</span>
+        </a>
+    </li>
+    <li class="menu-item-top" style="float: right">
+        <a href="/Personel/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">@ViewData["Name"]</span>
+        </a>
+    </li>
+
+
+}
+
+
+
+
+
+
+<div class="col-md-12 col-sm-6">
+    <div class="block">
+        <div class="block-heading">
+            <div class="main-text h2" style="font-weight:bolder">
+                Materyal Ekle
+            </div>
+        </div>
+        <div class="block-content-outer" style="padding-top:0">
+            <div class="block-content-inner">
+                <form role="form" action="/Personel/Materyalekle" method="post">
+                    <div class="form-group">
+                        <label style="font-weight:bolder">Tür</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio"  name="type" id="optionsRadios1" required value="kitap">
+                                Kitap
+                            </label>
+                            <label>
+                                <input type="radio" name="type" id="optionsRadios2" required value="dergi">
+                                Dergi
+                            </label>
+                            <label>
+                                <input type="radio" name="type" id="optionsRadios1-3" required value="ekitap">
+                                E-kitap
+                            </label>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="İsim" style="font-weight:bolder">Materyal İsmi</label>
+                        <input type="text" class="form-control" id="İsim" placeholder="İsim"  required name="isim">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yazar" style="font-weight:bolder">Yazar İsmi</label>
+                        <input type="text" class="form-control" id="yazar" placeholder="yazar" required name="yazar">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yayınevi" style="font-weight:bolder">Yayınevi</label>
+                        <input type="text" class="form-control" id="yayınevi" placeholder="yayınevi" required name="yayınevi">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="ISBN" style="font-weight:bolder">ISBN</label>
+                        <input type="number" class="form-control" id="ISBN" placeholder="ISBN" required name="ısbn">
+                    </div>
+                    <div class="form-group">
+                        <label for="İsim" style="font-weight:bolder">Basım Yılı</label>
+                        <input type="number" class="form-control" id="yıl" placeholder="Yıl" required name="basımyılı">
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label style="font-weight:bolder">Kategori</label>
+                        <select class="form-control" name="kategori" style="width: 200px;" required data-bv-field="sessionType">
+                            <option value="">Kategori Seçiniz</option>
+                            <option value="tarih">Tarih</option>
+                            <option value="felsefe">Felsefe</option>
+                            <option value="bilim">Bilim</option>
+                            <option value="psikoloji">Psikoloji</option>
+                            <option value="roman">Roman</option>
+                            <option value="edebiyat">Edebiyat</option>
+                         
+
+
+                            
+                        </select>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label style="font-weight:bolder">Dil</label>
+                        <select class="form-control" name="dil" style="width: 200px;" required data-bv-field="sessionType">
+                            <option value="">Dil Seçiniz</option>
+                            <option value="Türkçe">Türkçe</option>
+                            <option value="İngilizce">İngilizce</option>
+                           
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

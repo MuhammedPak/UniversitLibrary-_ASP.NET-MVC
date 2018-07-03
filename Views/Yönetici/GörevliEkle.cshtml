@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "GörevliEkle";
+}
+@if (ViewBag.control == false)
+{
+    <script>
+        alert("Kayıtlı Görevli Numarası");
+    </script>
+}
+@section head{
+
+    
+<li class="menu-item-top" style="float: left">
+    <a href="/Yönetici/Profil" class="top">
+        <span class="main-menu-icon">
+            <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+        </span>
+        <span class="main-menu-text">Profilim</span>
+    </a>
+</li><li class="menu-item-top" style="float: left">
+    <a href="/Yönetici/GörevliEkle" class="top">
+        <span class="main-menu-icon">
+            <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+        </span>
+        <span class="main-menu-text">Görevli Ekle</span>
+    </a>
+</li>
+<li class="menu-item-top" style="float: left">
+    <a href="/Home/AnaSayfa" class="top">
+        <span class="main-menu-icon">
+            <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+        </span>
+        <span class="main-menu-text">Çıkış</span>
+    </a>
+</li>
+
+}
+
+<form action="/Yönetici/GörevliEkle" method="post">
+    <div class="col-md-12 col-sm-6">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2" style="font-weight:bolder">
+                    Görevli Ekle
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="İsim" style="font-weight:bolder">İsim</label>
+                            <input type="text" class="form-control" id="İsim" placeholder="İsim" name="isim">
+                        </div>
+                        <div class="form-group">
+                            <label for="Soyisim" style="font-weight:bolder">Soyisim</label>
+                            <input type="text" class="form-control" id="Soyisim" placeholder="Soyisim" name="soyisim" >
+                        </div>
+                        <div class="form-group">
+                            <label for="İsim" style="font-weight:bolder">Görevli No</label>
+                            <input type="text" class="form-control" id="görevlino" placeholder="Görevli No" name="görevliid">
+                        </div>
+                        <div class="form-group">
+                            <label for="adress" style="font-weight:bolder">Adres</label>
+                            <input type="text" class="form-control" id="adres" placeholder="Adres" name="adres">
+                        </div>
+                        <div class="form-group">
+                            <label for="İsim" style="font-weight:bolder">Tel No</label>
+                            <input type="number" class="form-control" id="Telno" placeholder="Tel No" name="telefon">
+                        </div>
+                        <div class="form-group">
+                            <label for="İsim" style="font-weight:bolder">Şifre</label>
+                            <input type="password" class="form-control" id="şifre" placeholder="Şifre" name="sifre">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+

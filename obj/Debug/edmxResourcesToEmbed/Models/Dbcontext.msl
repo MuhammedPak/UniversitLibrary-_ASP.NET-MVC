@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="LibraryModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="LibraryModel.Author">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Barrows">
+      <EntityTypeMapping TypeName="LibraryModel.Barrow">
+        <MappingFragment StoreEntitySet="Barrows">
+          <ScalarProperty Name="BarrowId" ColumnName="BarrowId" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Materials_MaterialId" ColumnName="Materials_MaterialId" />
+          <ScalarProperty Name="Members_MemberId" ColumnName="Members_MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="LibraryModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="LibraryModel.History">
+        <MappingFragment StoreEntitySet="Histories">
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Material_MaterialId" ColumnName="Material_MaterialId" />
+          <ScalarProperty Name="Members_MemberId" ColumnName="Members_MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="LibraryModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="LibraryModel.Material">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Categories_CategoryId" ColumnName="Categories_CategoryId" />
+          <ScalarProperty Name="Languages_LanguageId" ColumnName="Languages_LanguageId" />
+          <ScalarProperty Name="Publishers_PublisherId" ColumnName="Publishers_PublisherId" />
+          <ScalarProperty Name="Types_TypeId" ColumnName="Types_TypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="LibraryModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="SchoolNumber" ColumnName="SchoolNumber" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publishers">
+      <EntityTypeMapping TypeName="LibraryModel.Publisher">
+        <MappingFragment StoreEntitySet="Publishers">
+          <ScalarProperty Name="PublisherId" ColumnName="PublisherId" />
+          <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="LibraryModel.Request">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="Members_MemberId" ColumnName="Members_MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reserves">
+      <EntityTypeMapping TypeName="LibraryModel.Reserve">
+        <MappingFragment StoreEntitySet="Reserves">
+          <ScalarProperty Name="ReserveId" ColumnName="ReserveId" />
+          <ScalarProperty Name="ReserveDate" ColumnName="ReserveDate" />
+          <ScalarProperty Name="Material_MaterialId" ColumnName="Material_MaterialId" />
+          <ScalarProperty Name="Members_MemberId" ColumnName="Members_MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="LibraryModel.Staff">
+        <MappingFragment StoreEntitySet="Staffs">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LibraryModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="LibraryModel.Type">
+        <MappingFragment StoreEntitySet="Types">
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MaterialAuthors" TypeName="LibraryModel.MaterialAuthors" StoreEntitySet="MaterialAuthors">
+      <EndProperty Name="Authors">
+        <ScalarProperty Name="AuthorId" ColumnName="Authors_AuthorId" />
+      </EndProperty>
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="MaterialId" ColumnName="Material_MaterialId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

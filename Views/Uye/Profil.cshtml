@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Üye";
+}
+@using softptoject.App_Classes
+@model List<Members>
+
+
+
+@section head{
+
+    <li class="menu-item-top" style="float: left">
+        <a href="/Uye/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Profilim</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Uye/HesapGecmisi" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Hesap Geçmişi</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Uye/Reserve" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Reservelerim</span>
+        </a>
+    </li><li class="menu-item-top" style="float: left">
+        <a href="/Uye/Istek" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">İsteklerim</span>
+        </a>
+    </li>
+    <li class="menu-item-top">
+        <a href="/Uye/Arama" class="top">
+            <span class="main-menu-text">Arama</span>
+        </a>
+    </li>
+    <li class="menu-item-top" style="float: left">
+        <a href="/Home/AnaSayfa" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">Çıkış</span>
+        </a>
+    </li>
+    <li class="menu-item-top" style="float: right">
+        <a href="/Uye/Profil" class="top">
+            <span class="main-menu-icon">
+                <span aria-hidden="true" class="icon icon-grid-big icon-size-medium"></span>
+            </span>
+            <span class="main-menu-text">@ViewData["SchoolNumber"]</span>
+        </a>
+    </li>
+
+
+}
+
+
+<div class="col-md-6">
+    <h1>
+
+        <span class="main-text">
+            <span style="font-size: x-large; font-weight:600">Profilim</span>
+        </span>
+    </h1>
+</div>
+
+<div class="col-md-12">
+    <div class="block">
+        <div class="block-heading">
+
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+
+                    <div class="profile-info">
+                        <div class="profile-info-block">
+                            <div class="profile-info-title h6">
+                                <span style="font-weight:bolder">İsim</span>
+                            </div>
+                            <div class="profile-info-body">
+                                @ViewData["Name"]
+                            </div>
+                            <div class="profile-info-title h6">
+                                <span style="font-weight:bolder">Soyisim</span>
+                            </div>
+                            <div class="profile-info-body">
+                                @ViewData["Surname"]
+                            </div>
+                            <div class="profile-info-title h6">
+                                <span style="font-weight:bolder">Okul No</span>
+                            </div>
+                            <div class="profile-info-body">
+                                @ViewData["SchoolNumber"]
+                            </div>
+                            <div class="profile-info-title h6">
+                                <span style="font-weight:bolder">Telefon</span>
+                            </div>
+                            <div class="profile-info-body">
+                                @ViewData["Telefon"]
+                            </div>
+                            <div class="profile-info-title h6">
+                                <span style="font-weight:bolder">Adres</span>
+                            </div>
+                            <div class="profile-info-body">
+                                @ViewData["Adress"]
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
